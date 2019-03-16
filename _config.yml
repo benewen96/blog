@@ -25,7 +25,7 @@ linkedin_username: ben-ewen
 author: Ben Ewen
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
 
