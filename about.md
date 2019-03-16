@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+author: Ben Ewen
 ---
 
 Hi, thanks for visiting my blog. I'm a 22 year-old Computer Science graduate that started out as a Software Developer. I'm now working as a DevOps engineer at Next (the UK's largest clothing retailer).

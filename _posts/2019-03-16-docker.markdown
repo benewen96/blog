@@ -3,6 +3,7 @@ layout: post
 title:  "Why Docker is taking DevOps By Storm"
 date:   2019-03-16 18:27:16 +0000
 categories: docker
+author: Ben Ewen
 ---
 
 If you ask anyone in the DevOps community what has been the most influential change within software development over the last few years - a large portion of them would say Docker.
@@ -43,19 +44,19 @@ Let's take a typical barebones web application, here's the constituent parts:
 
 Pretty obvious right? Let's discuss deploying this application. Should be easy...
 
-1) Build the front-end, probably minified JS code.
-2) Build the back-end - `npm build`.
-3) For the database, you will most likely have `.sql` files that express your database.
+1. Build the front-end, probably minified JS code.
+2. Build the back-end - `npm build`.
+3. For the database, you will most likely have `.sql` files that express your database.
 
 Great! We've now got a production-ready package (I've missed a lot of detail out but the nuances aren't significant here).
 
 Let's take that package and deploy it to our server. Enter the world of dependencies...
 
-1) Get the latest version of Node.js + NPM.
-2) Install PostgreSQL on the server.
-3) Optionally you may install tools such as `PM2` to daemonise your Node.js process.
-4) Don't forget those environment variables! Passwords, tokens, aliases etc.
-5) Run your application.
+ 1. Get the latest version of Node.js + NPM.
+ 2. Install PostgreSQL on the server.
+ 3. Optionally you may install tools such as `PM2` to daemonise your Node.js process.
+ 4. Don't forget those environment variables! Passwords, tokens, aliases etc.
+ 5. Run your application.
 
 Awesome - we've got our application running.
 
@@ -106,4 +107,63 @@ GitLab embraces the idea of containerisation and all the ideas that complement i
 
 - Docker registry for each repository.
 - 'Runners' that run CI/CD build jobs, that can run themselves inside Docker containers.
-- Docker at its core - GitLab can run inside Docker! (Docker-compose file provided at the end of this post).
+- Docker at its core - GitLab can run inside Docker!
+
+## And what's this Docker Compose that everyone is talking about?
+
+Docker compose is a super-set of the Dockerfile. It describes as infrastructure as code, an entire application stack. Here's an example - the below `docker-compose.yml` file will create you a working GitLab instance with a Docker Runner pre-configured!
+
+```docker-compose
+version: "3.3"
+
+services:
+  gitlab:
+    restart: always
+    network_mode: host
+    image: gitlab/gitlab-ce:latest
+    ports:
+      - "22"
+      - "80"
+      - "443"
+    volumes:
+      - "data:/var/opt/gitlab"
+      - "logs:/var/log/gitlab"
+      - "config:/etc/gitlab"
+      - ./gitlab.rb:/omnibus_config.rb
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    secrets:
+      - gitlab_root_password
+
+  gitlab-runner:
+    restart: always
+    network_mode: host
+    image: gitlab/gitlab-runner:alpine
+    volumes:
+      - "runner:/etc/gitlab-runner"
+      - "./register-runner.sh:/etc/gitlab-runner/register-runner.sh"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+secrets:
+  gitlab_root_password:
+    file: ./root_password.txt
+
+volumes:
+  data:
+  logs:
+  config:
+  runner:
+
+```
+
+### Summary
+
+Thanks for reading if you got this far. Docker is a really powerful asset to our DevOps team and I can see it changing the landscape of how we develop code long-term. This is also my first blog post - so thanks for starting this journey with me!
+
+### Resources
+
+Here you'll find resources for stuff I've talked about in this post:
+
+- [benewen96/gitlab-docker](https://github.com/benewen96/gitlab-docker)
+- [Docker](https://docs.docker.com/install/overview/)
+- [Docker-Compose](https://docs.docker.com/compose/)
