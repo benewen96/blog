@@ -1,0 +1,109 @@
+---
+layout: post
+title:  "Why Docker is taking DevOps By Storm"
+date:   2019-03-16 18:27:16 +0000
+categories: docker
+---
+
+If you ask anyone in the DevOps community what has been the most influential change within software development over the last few years - a large portion of them would say Docker.
+
+_Why you might ask_? Well - never before have we seen software development be performed at such a rapid rate. With the advent of Agile work-flows, rapidly changing business needs, and the ongoing technological transformation of business operations requires a robust environment to not only test applications during development - but also to run applications in production.
+
+Enter Docker - a container platform that works not only for the single developer but for large-scale enterprises looking to increase their time-to-market, velocity, and developer productivity.
+
+In this post I'd like to discuss the power of Docker based on my own experience of the platform. I appreciate that containerisation from the outside looks complex and naturally receives a certain level of skepticism (more on that later). I admittedly went into containerisation with such opinions.
+
+Let's begin.
+
+## Where did Docker come from?
+
+The idea of isolating an application isn't something new. The earliest practical example of this that I can remember (bearing in mind that I am 22 years old) is `screen` on Unix systems. I was amazed at the separation of running applications - even though this was just multiple terminals running on the same machine. 
+
+Then came the hardcore application of virtual machines to not only logically separate applications in terms of their running processes but achieved complete isolation of each logical host by virtualising _the entire host_ from another all on the same physical machine.
+
+VMWare, VirtualBox, KVM - my mind was well and truly blown. Over the years this got more and more optimised, dozens of VMs could be ran on the same hardware, with guaranteed isolation from one another. This was phenomenal - no matter the application, dependencies, OS - the power to reuse existing hardware for multiple applications was truly an amazing feat.
+
+Then we kind of went full-circle.
+
+The power of a VM was great. But it was overkill for the majority of applications. You have the burden of dependencies all the way down to the Operating System your application ran on. Besides, people stopped running such resource hungry applications, most applications today that serve businesses' clientele are designed to be served on the web - not quite optimal when you're replicating an entire OS for each one.
+
+Back to the full-circleness - Linux namespaces. Released all the way back in 2002 (apologies older readers) is a feature of the Linux kernel that appeared in early attempts of containerisation platforms such as FreeBSD Jails, LXC and Warden. Linux namespaces essentially used process IDs to separate running processes into groups that have their own set of resources. This meant two applications could run on the same single instance of an OS but run different dependencies without clashing. They could even have different network configurations, as a network process could be isolated to each group.
+
+## If the technology has existed for a while, what made Docker such a success?
+
+Docker not only optimised and embraced Linux namespaces, they thought about the typical development flow used. Enter Dockerfiles. Someone at Docker had a brilliant idea - _what if we express our infrastructure as code?_
+
+Let's take a typical barebones web application, here's the constituent parts:
+
+| Aspect     | Technology        |
+|------------|-------------------|
+| Front-End  | JS, React etc.    |
+| Web Server | Node.js + Express |
+| Database   | PostgreSQL        |
+
+Pretty obvious right? Let's discuss deploying this application. Should be easy...
+
+1) Build the front-end, probably minified JS code.
+2) Build the back-end - `npm build`.
+3) For the database, you will most likely have `.sql` files that express your database.
+
+Great! We've now got a production-ready package (I've missed a lot of detail out but the nuances aren't significant here).
+
+Let's take that package and deploy it to our server. Enter the world of dependencies...
+
+1) Get the latest version of Node.js + NPM.
+2) Install PostgreSQL on the server.
+3) Optionally you may install tools such as `PM2` to daemonise your Node.js process.
+4) Don't forget those environment variables! Passwords, tokens, aliases etc.
+5) Run your application.
+
+Awesome - we've got our application running.
+
+Three development cycles later... _"PostgreSQL has a new major version, let's upgrade"._ STOP! says the Ops team, we can't upgrade PostgreSQL on this server because another application running will break!
+
+I appreciate the above may appear tangential to Docker but now see how Docker can express everything above as a single file...
+
+Node.js Application
+
+```Dockerfile
+FROM node:11
+
+WORKDIR /node-app
+
+COPY . /node-app
+
+EXPOSE 80
+
+ENV API_KEY CQsKBQcHAAkLAwcIBAoPCQ
+
+RUN npm install
+
+RUN npm build
+
+CMD [ "npm", "start" ]
+
+```
+
+PostgreSQL Database
+
+```Dockerfile
+FROM postgres:11
+
+WORKDIR /postgres
+
+COPY /sql/createDatabase.sql /docker-entrypoint-initdb.d/
+```
+
+If we place these files in source control, as development progresses, there is a Dockerfile that explicitly states how to build and run the application within Docker. Running `docker build` will create a Docker image from a Dockerfile. Coupled with the fact that Docker guarantees the execution of a Docker image on anywhere Docker can run, you've just solved the problem of environmental parity and ambiguous infrastructure. 
+
+Even better, I can run Docker on my development machine as I'm developing to ensure there's no nasty surprises when it comes to deploying the application in production. Gone the classic line - "It works on my machine!".
+
+## So how have the DevOps community taken advantage of Docker?
+
+In a few ways, but the most striking example to me is an open-source web-based DevOps toolset called GitLab.
+
+GitLab embraces the idea of containerisation and all the ideas that complement it. It's utterly brilliant for the following reasons:
+
+- Docker registry for each repository.
+- 'Runners' that run CI/CD build jobs, that can run themselves inside Docker containers.
+- Docker at its core - GitLab can run inside Docker! (Docker-compose file provided at the end of this post).
