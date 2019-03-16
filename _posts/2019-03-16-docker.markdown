@@ -6,6 +6,8 @@ categories: docker
 author: Ben Ewen
 ---
 
+_I initially wrote this post as a contribution to my [Toptal](https://www.toptal.com/docker) submission. But it's inspired me to start a blog!_
+
 If you ask anyone in the DevOps community what has been the most influential change within software development over the last few years - a large portion of them would say Docker.
 
 _Why you might ask_? Well - never before have we seen software development be performed at such a rapid rate. With the advent of Agile work-flows, rapidly changing business needs, and the ongoing technological transformation of business operations requires a robust environment to not only test applications during development - but also to run applications in production.
