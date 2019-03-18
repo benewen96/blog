@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Why Docker is taking DevOps By Storm"
+title:  "Why Docker Is Taking DevOps by Storm"
 date:   2019-03-16 18:27:16 +0000
 categories: docker
 author: Ben Ewen
