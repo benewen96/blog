@@ -107,7 +107,7 @@ Seriously, I love a wiki, and GitLab provides one built in with every repository
 
 #### Web IDE
 
-Whenever I see Web IDE, I scream a little inside. I was always left dissapointed by GitHub's online editor. GitLab doesn't misuse "IDE" here. You can see everything you'd need. Syntax highlighting, IntelliSense for common languages, code reviews, merge requests, and even your CI jobs.
+Whenever I see "Web IDE", I scream a little inside. I was always left dissapointed by GitHub's online editor. GitLab doesn't misuse "IDE" here. You can see everything you'd need. Syntax highlighting, IntelliSense for common languages, code reviews, merge requests, and even your CI jobs.
 
 ### Verify
 
@@ -155,5 +155,3 @@ Whenever I see Web IDE, I scream a little inside. I was always left dissapointed
 
 
 ### Defend
-Events scoped to the group or project, used by group / project managers to look up who made what change.
-Instance events scoped to the whole GitLab instance, used by your Compliance team to perform formal audits.
