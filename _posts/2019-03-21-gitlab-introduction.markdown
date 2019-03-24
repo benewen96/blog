@@ -89,14 +89,25 @@ I really like this one - GitLab includes time tracking commands such as `/estima
 
 ### Create
 
-#### Source Code
+#### Source Code Management
+
+Clue's in the name - GitLab adopts the industry-standard distributed version of Git. If you're migrating from GitHub, your developers won't even notice the difference - promise!
+
+It's also worth mentioning that all your Git repositories from GitHub can be imported straight into GitLab, along with all issues and metadata.
 
 #### Code Review
 
+What's a good development team without code reviews? GitLab offers a complete code review process. Features include, commenting, inline improvements, and approval processes.
+
 #### Wiki
+
+How big's your `README.md`?
+
+Seriously, I love a wiki, and GitLab provides one built in with every repository! Share that information in the familiar Markdown syntax and GitLab will render a lovely wiki page for you. Oh - and it's source controlled so you have a history of all changes you can easily revert to.
 
 #### Web IDE
 
+Whenever I see Web IDE, I scream a little inside. I was always left dissapointed by GitHub's online editor. GitLab doesn't misuse "IDE" here. You can see everything you'd need. Syntax highlighting, IntelliSense for common languages, code reviews, merge requests, and even your CI jobs.
 
 ### Verify
 
@@ -144,3 +155,5 @@ I really like this one - GitLab includes time tracking commands such as `/estima
 
 
 ### Defend
+Events scoped to the group or project, used by group / project managers to look up who made what change.
+Instance events scoped to the whole GitLab instance, used by your Compliance team to perform formal audits.
