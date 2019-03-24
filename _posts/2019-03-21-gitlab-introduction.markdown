@@ -77,10 +77,15 @@ Ever tried to estimate how long a project should take to complete? Realised how 
 
 #### Project Management
 
+GitLab offers all the tools required whether you work in a lean methodology or an agile methodology. It includes issue tracking that you can link to code changes; visualise and track the status of builds, testing, security scans, and delivery.
+
 #### Kanban Boards
+
+Not much to say here, GitLab offers Kanban boards for all of your projects, letting you stick to one DevOps tool rather than having another just for your Kanban boards.
 
 #### Time Tracking
 
+I really like this one - GitLab includes time tracking commands such as `/estimate` and `/spend` so that you can tightly couple time tracking with the day-to-day commands you use with source control. No more forgetting how much time you spent on something!
 
 ### Create
 
