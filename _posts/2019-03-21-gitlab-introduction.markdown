@@ -35,7 +35,7 @@ Let's borrow a couple of quotes from the GitLab website:
 
 So hold on - GitLab isn't just an open source and/or self-hosted version of GitHub? Absolutely not! It is probably the most complete DevOps tool that I have ever come across.
 
-GitLab breaks itself down into 9 fundamental components:
+GitLab breaks itself down into ten fundamental components:
 
 - Manage
 - Plan
@@ -52,7 +52,7 @@ As you can see - it is not just about source control, but rather a complete DevO
 
 And if you think I'm trying to sell you something... it's completely free and open-source! Okay, they do have a managed solution, but you can use most of it's features completely free-of-charge if you host it yourself.
 
-Let's vist these nine areas to understand the value that GitLab delivers:
+Let's vist these ten areas to understand the value that GitLab delivers:
 
 ### Manage
 
