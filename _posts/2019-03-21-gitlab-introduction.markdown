@@ -127,8 +127,13 @@ GitLab enables you to measure the impact of upcoming code changes before they go
 
 #### Docker Registry
 
+Remember back in the last post when I mentioned GitLab has it's own Docker registry for each repository? This is that feature!
+
+I have had success pushing to the Docker registry as part of the CI process, meaning that the images can be easily re-deployed for review apps (see the Release section for more information on review apps).
+
 #### NPM Registry
 
+Just as with Docker images, GitLab can also provide it's own NPM registry for your projects. This feature is still in development, so look out for it in the future.
 
 ### Secure
 
