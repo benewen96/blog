@@ -175,6 +175,10 @@ Incremental rollout works with any Kubernetes cluster.
 
 #### Auto DevOps
 
+Auto DevOps is a nice feature of GitLab. It attempts to give you a working DevOps experience out of the box for your project. By automatically detecting the programming language, it will automatically configure building, testing, and code quality tools, and help define how to deploy the application.
+
+This gives you the confidence to set out on the right DevOps path for your project. You can build upon what is given to you without fear of adopting anti-patterns or bad practices.
+
 ### Monitor
 
 
