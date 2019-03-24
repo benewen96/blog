@@ -194,3 +194,10 @@ Look out for updates...
 ## Summary
 
 That's it for now. Hopefully this first part highlighted the benefits that GitLab has to offer your DevOps team. Look out for the next part of this series where I'll be getting my hands dirty and show how to deploy a GitLab instance inside Docker!
+
+### Resources
+
+- [GitLab Product Info](https://about.gitlab.com/product/)
+- [GitLab DevOps Lifecycle](https://about.gitlab.com/stages-devops-lifecycle/)
+- [About GitLab](https://about.gitlab.com/)
+- [GitLab Tools Landscape](https://about.gitlab.com/devops-tools/)
