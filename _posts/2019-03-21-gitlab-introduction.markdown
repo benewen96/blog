@@ -190,3 +190,7 @@ GitLab uses a well-known monitoring tool called [Prometheus](https://prometheus.
 This section existed on the GitLab website, but was empty :(
 
 Look out for updates...
+
+## Summary
+
+That's it for now. Hopefully this first part highlighted the benefits that GitLab has to offer your DevOps team. Look out for the next part of this series where I'll be getting my hands dirty and show how to deploy a GitLab instance inside Docker!
