@@ -50,11 +50,9 @@ GitLab breaks itself down into 9 fundamental components:
 
 As you can see - it is not just about source control, but rather a complete DevOps solution. Forget having a toolchain consisting of multiple products chained together, GitLab includes everything you need to run a successful DevOps team.
 
-And if you think I'm trying to sell you something... it's completely free and open-source! Okay, they do have a managed solution, but you can use all of it's features completely free-of-charge if you host it yourself.
+And if you think I'm trying to sell you something... it's completely free and open-source! Okay, they do have a managed solution, but you can use most of it's features completely free-of-charge if you host it yourself.
 
 Let's vist these nine areas to understand the value that GitLab delivers:
-
-_(Anything marked with $$ indicates that is only available on paid plans.)_
 
 ### Manage
 
@@ -62,7 +60,7 @@ _(Anything marked with $$ indicates that is only available on paid plans.)_
 
 GitLab supports as standard LDAP (Lightweight Directory Authentication Protocol). This means that you can use Microsoft's Active Directory, Apple's Open Directory, Open LDAP etc. to on-board users and to authenticate with the GitLab platform.
 
-#### Audit ($$)
+#### Audit
 
 Auditing is made easy on GitLab, enabling you to keep track of changes on your instance. Broadly speaking, they are split down into:
 
@@ -113,10 +111,17 @@ Whenever I see "Web IDE", I scream a little inside. I was always left dissapoint
 
 #### Continuous Integration (CI)
 
+GitLab implements continuous integration beautifully. As you push code to your repositories, GitLab automatically picks it up, builds and tests it with unit and integration testing, before merging the changes.
+
 #### Code Quality
+
+What I really enjoy with the GitLab ecosystem is the adoption of existing technologies. Rather than re-inventing the wheel, GitLab will use existing tools. I believe this has a lot to do with how open-source it is - GitLab themselves recognise and utilise the power of open-source software.
+
+This is shown with their code quality feature, it is adopted from [Code Climate](https://codeclimate.com/) engines.
 
 #### Performance Testing
 
+GitLab enables you to measure the impact of upcoming code changes before they go live with [Sitespeed.io](https://www.sitespeed.io/). All of this is shown within the merge request window, meaning you don't have to leave GitLab to obtain these metrics.
 
 ### Package
 
