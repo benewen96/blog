@@ -181,5 +181,12 @@ This gives you the confidence to set out on the right DevOps path for your proje
 
 ### Monitor
 
+#### Metrics
+
+GitLab uses a well-known monitoring tool called [Prometheus](https://prometheus.io/) to monitor your application in real-time. 
 
 ### Defend
+
+This section existed on the GitLab website, but was empty :(
+
+Look out for updates...
