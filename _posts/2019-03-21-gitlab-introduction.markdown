@@ -139,10 +139,13 @@ Just as with Docker images, GitLab can also provide it's own NPM registry for yo
 
 #### SAST & DAST
 
+GitLab offers comprehensive static and dynamic application security testing so that you can be confident your application is secure. It can first statically analyse your code to find known code-level exploits. Additionally, it can analyse you live application dynamically for run-time level exploits and report back.
+
 #### Dependency Scanning
 
-#### Container Scanning
+A big anxiety for DevOps teams is the vulnerabilities that can come with external packages. One [notable example](https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident) was the NPM `event-stream` package to be compromised in handing over private keys for Bitcoin wallets. 
 
+GitLab will help mitigate this risk by automatically scanning any third-party packages used in your application.
 
 ### Release
 
