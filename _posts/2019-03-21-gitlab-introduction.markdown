@@ -151,14 +151,25 @@ GitLab will help mitigate this risk by automatically scanning any third-party pa
 
 #### Continuous Delivery (CD)
 
-#### Release Orchestration
+GitLab provides an easy-to-use continuous delivery mechanism so that your CI process can easily flow into staging and production environments. Automatically deploy your application into production - with confidence that it will work first time!
 
 #### Pages
 
+This blog is hosted on GitHub's pages. Well, GitLab has it's own equivalent that is just as good. Push any static resource to a GitLab repository and you can host it on your GitLab instance. It supports many static site generators including but not limited to: Jekyll, Middleman, Hexo, Hugo, Pelican.
+
+_Maybe I should move this blog over to GitLab...?_
+
 #### Review Apps
+
+So you've commited your code, someone has code reviewed it, it's passed all of its unit tests... save someone the trouble of deploying your application somewhere so they can inspect it, let GitLab automatically create a review app as part of your CI process. Bonus points to GitLab for using Docker images if present to create these. Just use `docker run` in your `deploy_review` section of the `gitlab_ci.yml` file.
+
+I will explain this in more depth in a later part of this series.
 
 #### Incremental Rollout
 
+High-risk production deploys can be rolled out incrementally to analyse the impact of your live application without affecting all of your users.
+
+Incremental rollout works with any Kubernetes cluster.
 
 ### Configure
 
