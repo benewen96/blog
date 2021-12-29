@@ -1,42 +1,86 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Ben's Blog
 email: benewen14@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Here you'll find me talking about all things DevOps, Platform, and Software Development.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://benewen96.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  benewen96
-linkedin_username: ben-ewen
-author: Ben Ewen
-# Build settings
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+lang: en-GB # default lang
+timezone: EU/London # set your timezone
+image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
+mode: dark # default theme "dark" | "light"
+
+# Profile settings
+author:
+  name: Ben Ewen
+  bio: >- # tell to the world
+    Hi, thanks for visiting my blog. I'm a 25 year-old Computer Science graduate that started out as a Software Developer. I have since found myself working heavily in the DevOps and Platform space, predominantly in the Retail sector.
+  github: benewen96 # github username
+  email: benewen14@gmail.com # email address
+  avatar: /assets/img/avatar.png # change with your own avatar
+  linkedin: https://www.linkedin.com/in/ben-ewen
+
+# URL settings
+permalink: /:title/
 google_analytics: UA-32467087-2
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Collection setting
+collections:
+  posts:
+    output: true
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tags: []
+    description:
+  draft_default_front_matter:
+    modified:
+    tags: []
+    description:
+
+# Homepage limit posts
+number_of_posts: 5
+
+# Build settings
+# theme: klise
+sass:
+  style: compressed
+
+include:
+  - _redirects
+  - .htaccess
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - CHANGELOG.md
+  - README.md
+  - node_modules
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - lighthouse.png
+  - klise-*.gem
+  - klise.gemspec
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles

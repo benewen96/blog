@@ -99,7 +99,6 @@ $ sudo install k3sup /usr/local/bin/
 Now we can finally make the cluster! 
 
 1. Pick one of the VMs to be the starting master by placing its ip in the `SERVER_IP` variable. Replace `ubuntu` as the `USER` if your user is named differently. Set the `--ssh-key` to be he key used earlier, e.g. `~/.ssh/mykey`.
-
     ```sh
     $ export SERVER_IP=192.168.31.35
     $ export USER=ubuntu
@@ -114,7 +113,6 @@ Now we can finally make the cluster!
     ```
 
     Verify the cluster has been created by running:
-
     ```sh
     $ export KUBECONFIG=`pwd`/kubeconfig
     $ kubectl get node -o wide
@@ -129,7 +127,6 @@ Now we can finally make the cluster!
     ```
 
 2. To join the other two VMs, run the `k3sup join` command below, being sure to replace the `--ip` argument with the 2nd and 3rd VM IPs.
-
     ```sh
     $ k3sup join \
       --ip 192.168.31.36 \
@@ -176,7 +173,7 @@ users:
     client-certificate-data: ...
 ```
 
-The simplest set up that we used is a TCP network load balancer that balanced TCP port 6443 across 192.168.31.35-37. We then replaced `https://192.168.31.35:6443` in the `kubeconfig` to be the URL of the load balancer. If you use a Layer 7 load balancer, do not terminate TLS at the load balancer, be sure tha t it is passed-through as Kubernetes uses X509 Client Certs authentication via the TLS protocol. 
+The simplest set up that we used is a TCP network load balancer that balanced TCP port 6443 across 192.168.31.35-37. We then replaced `https://192.168.31.35:6443` in the `kubeconfig` to be the URL of the load balancer. If you use a Layer 7 load balancer, do not terminate TLS at the load balancer, be sure that it is passed-through as Kubernetes uses X509 Client Certs authentication via the TLS protocol. 
 
 ### Step 4 - Add a LoadBalancer provider to your cluster (MetalLB)
 
