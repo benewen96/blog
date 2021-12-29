@@ -16,8 +16,7 @@
 title: Ben's Blog
 email: benewen14@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Here you'll find me talking about all things DevOps and Software Development.
-  I'm a Computer Science graduate that works for the UK's leading clothing retailer, Next.
+  Here you'll find me talking about all things DevOps, Platform, and Software Development.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://benewen96.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  benewen96
