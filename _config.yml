@@ -16,7 +16,7 @@ author:
     Hi, thanks for visiting my blog. I'm a 25 year-old Computer Science graduate that started out as a Software Developer. I have since found myself working heavily in the DevOps and Platform space, predominantly in the Retail sector.
   github: benewen96 # github username
   email: benewen14@gmail.com # email address
-  avatar: /{{ site.baseurl }}/assets/img/avatar.png # change with your own avatar
+  avatar: /blog/assets/img/avatar.png # change with your own avatar
   linkedin: https://www.linkedin.com/in/ben-ewen
 
 # URL settings
